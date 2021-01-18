@@ -8,7 +8,7 @@ import pickle
 import pandas as pd
 
 # import data from excel files
-df = pd.read_excel("data/DataRequest_Sanchez-Alonso_12.10.20.xlsx")
+df = pd.read_excel("data/DataRequest_Sanchez-Alonso_12.10.20.xlsx", na_values=[99, '99', 999, '999', 9999, '9999'])
 
 # import train/test split
 test_train = pd.read_excel("data/BEAN_testing_training_n130.xlsx")
