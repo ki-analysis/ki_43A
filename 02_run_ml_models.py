@@ -87,12 +87,12 @@ def run_all_models(X, y, groups=None, additional_text_to_print=''):
 
     print(f"{additional_text_to_print} Mean Absolute Error:")
     print("--------------------------------------------------")
-    for model_name, results in results.items():
+    for model_name, r in results.items():
         print(
             f'{model_name} (mean | standard deviation) --',
-            np.round(-np.mean(results['test_score']), 2),
+            np.round(-np.mean(r['test_score']), 2),
             '|',
-            np.round(np.std(results['test_score']), 2)
+            np.round(np.std(r['test_score']), 2)
         )
     print("--------------------------------------------------'\n")
     return results, outer_cv

@@ -184,7 +184,6 @@ def autogluon_evaluator(
             "y",
             time_limits=AUTOGLUON_N_SEC,
             presets="best_quality",
-            output_directory=".autogluon_temp",
             eval_metric=autogluon_eval_metric,
             problem_type=learning_task,
             verbosity=0,
