@@ -7,7 +7,7 @@ Created on Mon Jan 11 14:44:10 2021
 
 from constants import RANDOM_STATE
 from sklearn.svm import SVC, SVR
-from sklearn.linear_model import LogisticRegression, Ridge, BayesianRidge, ElasticNet
+from sklearn.linear_model import LogisticRegression, Ridge, ElasticNet
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.pipeline import Pipeline
 
@@ -79,10 +79,7 @@ elasticnet_grid = {
 svr_pipeline = Pipeline(
     [
         ("scaler", MinMaxScaler()),
-        (
-            "svr",
-            SVR(kernel="linear", tol=1e-4),
-        ),
+        ("svr", SVR(kernel="linear", tol=1e-4)),
     ]
 )
 svr_grid = {

@@ -55,7 +55,14 @@ for predicing 24m mullen, can use: HAZ_AN01 through HAZ_AN09 (HAZ_AN10 can happe
 caveat: HAZ_AN07 has missing values, so we're excluding that one
 '''
 haz_covariates_for_6m = [f'HAZ_AN0{i}' for i in [1, 2, 3]]
+df['HAZ_mean_up_to_6m'] = df[haz_covariates_for_6m].mean(axis=1)
+df['HAZ_min_up_to_6m'] = df[haz_covariates_for_6m].min(axis=1)
+df['HAZ_max_up_to_6m'] = df[haz_covariates_for_6m].max(axis=1)
+
 haz_covariates_for_24m = [f'HAZ_AN0{i}' for i in [1, 2, 3, 4, 5, 6, 8, 9]]
+df['HAZ_mean_up_to_24m'] = df[haz_covariates_for_24m].mean(axis=1)
+df['HAZ_min_up_to_24m'] = df[haz_covariates_for_24m].min(axis=1)
+df['HAZ_max_up_to_24m'] = df[haz_covariates_for_24m].max(axis=1)
 
 other_covariates = [
     'wall_1',  # categorical but only 2 unique values (3 and 4) so doesn't need special codeing
@@ -99,14 +106,16 @@ output_covariates_24m = [
 '''
 now we can put together all the covariates for 6m and 24m and save for easy access
 '''
-input_covariates_6m = tension_covariates + haz_covariates_for_6m + other_covariates
+input_covariates_6m = tension_covariates + other_covariates + \
+    ['HAZ_mean_up_to_6m', 'HAZ_min_up_to_6m', 'HAZ_max_up_to_6m']
 output_covariates_6m_raw = [i for i in output_covariates_6m if 'raw' in i]
 df['mullen_6m_raw_average'] = df[output_covariates_6m_raw].mean(1)  # simple average
 output_covariates_6m_tsc = [i for i in output_covariates_6m if 'tsc' in i]
 df['mullen_6m_tsc_average'] = df[output_covariates_6m_tsc].mean(1)  # simple average
 df_6m = df[input_covariates_6m + ['FSID', 'mullen_6m_raw_average', 'mullen_6m_tsc_average']]
 
-input_covariates_24m = tension_covariates + haz_covariates_for_24m + other_covariates
+input_covariates_24m = tension_covariates + other_covariates + \
+    ['HAZ_mean_up_to_24m', 'HAZ_min_up_to_24m', 'HAZ_max_up_to_24m']
 output_covariates_24m_raw = [i for i in output_covariates_24m if 'raw' in i]
 df['mullen_24m_raw_average'] = df[output_covariates_24m_raw].mean(1)  # simple average
 output_covariates_24m_tsc = [i for i in output_covariates_24m if 'tsc' in i]

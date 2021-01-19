@@ -4,7 +4,7 @@ Created on Wed Jan 13 14:39:19 2021
 
 @author: serge
 """
-from multiprocessing import Process, freeze_support
+from multiprocessing import freeze_support
 import pickle
 import numpy as np
 from evaluate_utils import sklearn_pipeline_evaluator, lightgbm_hyperopt_evaluator, autogluon_evaluator
