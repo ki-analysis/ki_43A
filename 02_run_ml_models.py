@@ -123,5 +123,5 @@ if __name__ == '__main__':
         X_24m, y_24m_raw, groups=None, additional_text_to_print='Raw Mullen (24m)')
 
     # save results and models
-    with open('data/ml_results.pickle', 'wb') as f:
+    with open('data/ml_results_raw.pickle', 'wb') as f:
         pickle.dump((raw_6m_results, raw_6m_outer_cv, raw_24m_results, raw_24m_outer_cv), f)
