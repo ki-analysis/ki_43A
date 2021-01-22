@@ -14,7 +14,7 @@ from functools import partial
 from sklearn.model_selection import GridSearchCV, cross_validate, cross_val_score
 from sklearn.metrics import get_scorer
 from hyperopt import fmin, tpe, Trials, space_eval
-#from autogluon import TabularPrediction as task
+from autogluon import TabularPrediction as task
 
 
 def get_default_scoring(learning_task):
