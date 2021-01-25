@@ -8,7 +8,10 @@ First install a Python 3.x miniconda on your system: https://docs.conda.io/en/la
 
 Once it is installed, open a miniconda shell/terminal, and execute the following command to install all the necessary packages:
 
-`pip install -r requirements.in`
+```bash
+conda install pip cython -y
+pip install -r requirements.in
+```
 
 ## Data
 To be able to run the code in this repository, you'll have to make a `data/` folder and put the following files in it:
