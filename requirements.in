@@ -1,12 +1,15 @@
-numpy
+# all of these will be installed via conda
+numpy==1.16.6
 scipy
 pandas
-scikit-learn
+statsmodels
 ipython
 jupyterlab
 matplotlib
 seaborn
-lightgbm
+# the rest will be installed with pip
+lightgbm==3.1.1
 hyperopt
-mxnet
-autogluon
+mxnet==1.7.0.post1
+scikit-learn
+autogluon==0.0.015
