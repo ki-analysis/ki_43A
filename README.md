@@ -10,10 +10,15 @@ Once it is installed, open a miniconda shell/terminal, and execute the following
 
 `pip install -r requirements.in`
 
+## Data
+To be able to run the code in this repository, you'll have to make a `data/` folder and put the following files in it:
+- `DataRequest_Sanchez-Alonso_12.10.20.xlsx`
+- `BEAN_testing_training_n130.xlsx`
+
 ## Code Organization
 The files that begin with `01_*`, `02_*`, etc are the main scripts. They should be run in order:
 
-- `01_import_data.py` - Once you stick your data into the `data` folder, you can run this script with `python 01_import_data.py`. 
+- `01_import_data.py` - Once you stick your data into the `data/` folder, you can run this script with `python 01_import_data.py`. 
 It will convert the raw data into a machine learning ready format.
 
 - `02_run_ml_models.py` - This will run all of the models, and save all of the results. It takes about 1 to 2 hours. Run with `python 02_run_ml_models.py`.
