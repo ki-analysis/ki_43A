@@ -12,7 +12,9 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.pipeline import Pipeline
 
 
-# classifiers
+"""
+Classification models
+"""
 
 # Linear SVC classifier
 svc_pipeline = Pipeline(
@@ -36,7 +38,7 @@ lr_pipeline = Pipeline(
             "logistic",
             LogisticRegression(
                 solver="saga", max_iter=10000, penalty="elasticnet", l1_ratio=0.1, random_state=RANDOM_STATE
-            ),  # without elasticnet penalty, LR can get pretty bad sometimes
+            ),  # without elasticnet penalty, LR can get awful performance
         ),
     ]
 )
@@ -45,7 +47,9 @@ lr_grid = {
 }
 
 
-# regressors
+"""
+Regression models
+"""
 
 # ridge regression
 ridge_pipeline = Pipeline(

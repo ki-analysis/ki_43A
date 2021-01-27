@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Jan  5 13:40:03 2021
+Created on Tue Jan 5 13:40:03 2021
 
 @author: sergey feldman
-
-
 """
 import pickle
 import pandas as pd
